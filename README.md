@@ -24,20 +24,20 @@
 
 ---
 
-| element składni | symbol | przestrzeń nazw |
-|--|:--:|--|--|
-| **stała** | `c` | `a`..`e` |
-| **zmienna** | `X` | `A`..`Z` |
-| **symbol funkcyjny** | `f/1` | `f`..`n` |
-| **symbol predykatywny** | `p/1` | `p`..`z` |
-| **negacja** | `¬` | `NOT`, `~`, `¬` |
-| **koniunkcja** | `∧` | `AND`, `&`, `∧` |
-| **alternatywa** (~~dysjunkcja~~) | `∨` | `OR`, `|`, `∨` |
-| **implikacja** | `→` | `IMPLIES`, `→` |
-| **równoważność** | `↔` | `IFF`, `↔` |
-| alternatywa **wykluczająca** | `⊕` | `XOR`, `⊕` |
-| kwantyfikator **uniwersalny** | `∀` | `FORALL`, `∀` |
-| kwantyfikator **egzystencjalny** | `∃` | `EXISTS`, `∃` |
+| element składni                  | symbol | przestrzeń nazw   |
+| -------------------------------- |:------:| ----------------- |
+| **stała**                        |  `c`   | `a`..`e`          |
+| **zmienna**                      |  `X`   | `A`..`Z`          |
+| **symbol funkcyjny**             | `f/1`  | `f`..`n`          |
+| **symbol predykatywny**          | `p/1`  | `p`..`z`          |
+| **negacja**                      |  `¬`   | `NOT`, `~`, `¬`   |
+| **koniunkcja**                   |  `∧`   | `AND`, `&`, `∧`   |
+| **alternatywa** (~~dysjunkcja~~) |  `∨`   | `OR`, &vert;, `∨` |
+| **implikacja**                   |  `→`   | `IMPLIES`, `→`    |
+| **równoważność**                 |  `↔`   | `IFF`, `↔`        |
+| alternatywa **wykluczająca**     |  `⊕`   | `XOR`, `⊕`        |
+| kwantyfikator **uniwersalny**     |  `∀`   | `FORALL`, `∀`     |
+| kwantyfikator **egzystencjalny**  |  `∃`   | `EXISTS`, `∃`     |
 
 ### Wejście (przykład)
 
