@@ -1,3 +1,6 @@
+import utils.conf as conf
+
+
 def _oper(token):
     return f"\033[1m{token}\033[0m"
 
@@ -13,11 +16,6 @@ def _quantifier(token):
 def _func(token):
     return f"\033[34m{token}\033[0m"
 
-
-_quantifiers = ['FORALL', '∀', 'EXISTS', '∃']
-_1args = ['NOT', '~', '¬']
-_2args = ['AND', '&', '∧', 'OR', '|', '∨',
-          'IMPLIES', '→', 'IFF', '↔', 'XOR', '⊕']
 
 formula = []
 
@@ -52,16 +50,16 @@ def analyse(arr: list):
     else:
         token = arr.pop()
 
-        if token in _quantifiers:
+        if token in conf.quantifiers:
             formula = analyse(arr)
             variable = analyse(arr)
             return f"{_quantifier(token)} {variable} ({formula})"
 
-        elif token in _1args:
+        elif token in conf.singles:
             arg_1 = analyse(arr)
             return f"{_not(token)} {arg_1}"
 
-        elif token in _2args:
+        elif token in conf.doubles:
             arg_2 = analyse(arr)
             arg_1 = analyse(arr)
             return f"({arg_1}) {_oper(token)} ({arg_2})"
@@ -84,4 +82,4 @@ def analyse(arr: list):
 def end(pre=False):
     if pre:
         print("")
-    print("| \033[1;30mEND\033[0m")
+    print("| \033[1;30mEXIT\033[0m")

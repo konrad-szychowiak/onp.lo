@@ -4,9 +4,11 @@ import utils.test
 
 
 def main():
-    """
-    Application awaints for input…
-    To stop reading input please type END or click Enter [Return] again after the last line.
+    """onp.lo
+    | Translating postfix to infix notation
+    | for first order predicate calculus.
+
+    To end the program type EXIT or press Enter [Return] again after the last line.
     """
 
     # reading data
@@ -14,7 +16,7 @@ def main():
         postfix = input('$ ').split()
 
         # user interruption / ending input
-        if postfix in [[], ['END']]:
+        if postfix in [[], ['EXIT'], ['END']]:
             break
 
         postfix = utils.test.init(postfix)

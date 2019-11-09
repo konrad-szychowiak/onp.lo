@@ -1,0 +1,21 @@
+{
+  "color": 1,
+  "tokens": {
+    "quantifiers": ["FORALL", "∀", "EXISTS", "∃", "MAYBE", "Ɯ"],
+    "singles": ["NOT", "~", "¬"],
+    "doubles": [
+      "AND",
+      "&",
+      "∧",
+      "OR",
+      "|",
+      "∨",
+      "IMPLIES",
+      "→",
+      "IFF",
+      "↔",
+      "XOR",
+      "⊕"
+    ]
+  }
+}
