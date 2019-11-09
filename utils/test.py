@@ -14,8 +14,6 @@ def _func(token):
     return f"\033[34m{token}\033[0m"
 
 
-END = "\033[1;30mEND\033[0m"
-
 _quantifiers = ['FORALL', '∀', 'EXISTS', '∃']
 _1args = ['NOT', '~', '¬']
 _2args = ['AND', '&', '∧', 'OR', '|', '∨',
@@ -81,3 +79,9 @@ def analyse(arr: list):
 
         else:
             return f"{token}"
+
+
+def end(pre=False):
+    if pre:
+        print("")
+    print("| \033[1;30mEND\033[0m")

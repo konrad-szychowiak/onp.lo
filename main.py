@@ -23,8 +23,13 @@ def main():
         # for i in range(len(postfix)-1, -1, -1): #odczytywanie wyrazow postfixa od konca
         #     pass
 
-    print("| %s" % (utils.test.END))
+    utils.test.end()
 
 
 print(main.__doc__)
-main()
+try:
+    main()
+except KeyboardInterrupt:
+    utils.test.end(True)
+except EOFError:
+    utils.test.end(True)
