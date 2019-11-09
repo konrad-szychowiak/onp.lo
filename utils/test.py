@@ -1,3 +1,21 @@
+def _oper(token):
+    return f"\033[1m{token}\033[0m"
+
+
+def _not(token):
+    return f"\033[1;31m{token}\033[0m"
+
+
+def _quantifier(token):
+    return f"\033[35m{token}\033[0m"
+
+
+def _func(token):
+    return f"\033[34m{token}\033[0m"
+
+
+END = "\033[1;30mEND\033[0m"
+
 _quantifiers = ['FORALL', '∀', 'EXISTS', '∃']
 _1args = ['NOT', '~', '¬']
 _2args = ['AND', '&', '∧', 'OR', '|', '∨',
@@ -8,7 +26,17 @@ formula = []
 
 def init(form: list):
     formula = form
-    return analyse(formula)
+
+    try:
+        answer = analyse(formula)
+    except IndexError:
+        return _not("[!] To few elements in given form")
+
+    if len(answer.split()) != 1 and len(answer.split()) != len(answer.split(', ')):
+        return f"({answer})"
+
+    else:
+        return answer
 
 
 def analyse(arr: list):
@@ -17,10 +45,11 @@ def analyse(arr: list):
     with corresponding types.
     """
 
-    print(arr)
-
+    # print(arr)
     if len(arr) == 1:
-        return f"{arr[0]}"
+        last = arr[0]
+        arr.pop()
+        return last
 
     else:
         token = arr.pop()
@@ -28,16 +57,16 @@ def analyse(arr: list):
         if token in _quantifiers:
             formula = analyse(arr)
             variable = analyse(arr)
-            return f"{token} {variable}. [{formula}]"
+            return f"{_quantifier(token)} {variable} ({formula})"
 
         elif token in _1args:
             arg_1 = analyse(arr)
-            return f"{token} {arg_1}"
+            return f"{_not(token)} {arg_1}"
 
         elif token in _2args:
             arg_2 = analyse(arr)
             arg_1 = analyse(arr)
-            return f"({arg_1}) {token} ({arg_2})"
+            return f"({arg_1}) {_oper(token)} ({arg_2})"
 
         elif token.find('/') != -1:
             token = token.split('/')
@@ -45,10 +74,10 @@ def analyse(arr: list):
 
             for arg in range(int(token.pop())):
                 arg = analyse(arr)
-                tmp_string += f"{arg},"
+                tmp_string = f"{arg}, " + tmp_string
 
-            tmp_string = tmp_string[:-1]
-            return f"{token[0]}({tmp_string})"
+            tmp_string = tmp_string[:-2]
+            return f"{_func(token[0])}({tmp_string})"
 
         else:
             return f"{token}"

@@ -1,7 +1,5 @@
 """ onp.lo - All Rights Reserved. """
 
-from sys import stdin, stderr
-
 import utils.test
 
 
@@ -12,8 +10,8 @@ def main():
     """
 
     # reading data
-    for postfix in stdin:
-        postfix = postfix.strip().split()
+    while True:
+        postfix = input('$ ').split()
 
         # user interruption / ending input
         if postfix in [[], ['END']]:
@@ -21,9 +19,11 @@ def main():
 
         postfix = utils.test.init(postfix)
 
-        print(f"|> {postfix}\n", file=stderr)
+        print(f"| {postfix}\n")
         # for i in range(len(postfix)-1, -1, -1): #odczytywanie wyrazow postfixa od konca
         #     pass
+
+    print("| %s" % (utils.test.END))
 
 
 print(main.__doc__)
