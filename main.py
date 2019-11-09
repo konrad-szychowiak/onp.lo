@@ -1,16 +1,25 @@
-#onp.lo - All Rights Reserved.
-class Term:
-    def __init__(self, name):
-        self.name = name
-    def get():
-        return f"{self.name}"
+""" onp.lo - All Rights Reserved. """
 
+from sys import stdin, stderr
+# from utils.math import read
 
-import sys
-for postfix in sys.stdin: #nieskonczona petla 
-    postfix = postfix.strip().split() 
-    for i in range(len(postfix)-1, -1, -1): #odczytywanie wyrazow postfixa od konca
-        
-        
-        
-        
+def main():
+    """
+    Application awaints for input…
+    To stop reading input please type END or click Enter [Return] again after the last line.
+    """
+    # reading data
+    for postfix in stdin:
+        postfix = postfix.strip().split()
+
+        # user interruption / ending input
+        if postfix == [] \
+        or postfix == ['END']:
+            break
+
+        # print(postfix, type(postfix), file=stderr)
+        # for i in range(len(postfix)-1, -1, -1): #odczytywanie wyrazow postfixa od konca
+        #     pass
+
+print(main.__doc__)
+main()
