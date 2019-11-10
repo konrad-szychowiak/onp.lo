@@ -1,5 +1,5 @@
-import re
-import onpl.conf as conf
+from re import search as match
+import onplo.conf as conf
 
 
 def quantifier(token):
@@ -15,16 +15,16 @@ def double(token):
 
 
 def predicate(token):
-    return re.search("^[p-z]\/+[1-9]$", token)
+    return match("^[p-z]\/+[1-9]$", token)
 
 
 def function(token):
-    return re.search("^[f-o]\/+[1-9]$", token)
+    return match("^[f-o]\/+[1-9]$", token)
 
 
 def constant(token):
-    return re.search("^[a-e]$", token)
+    return match("^[a-e]$", token)
 
 
 def variable(token):
-    return re.search("^[A-Z]$", token)
+    return match("^[A-Z]$", token)

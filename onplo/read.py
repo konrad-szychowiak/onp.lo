@@ -1,20 +1,17 @@
-import onpl.type as type
-import onpl.wrap as wrap
+import onplo.type as type
+import onplo.wrap as wrap
 
 
 _formula = []
 
 
-def get(form: list):
-    _formula = form
+def get(form: str):
+    """
+    General parser function
+    """
+    _formula = form.split()
 
-    try:
-        answer = analyse(_formula)
-
-    except (IndexError, ValueError) as Error:
-        return f"[!] An error occured: {Error}"
-
-    return answer
+    return analyse(_formula)
 
 
 def analyse(arr: list):
@@ -25,7 +22,7 @@ def analyse(arr: list):
 
     # print(arr)
     if len(arr) == 0:
-        return ''
+        pass
 
     else:
         token = arr.pop()
@@ -37,7 +34,7 @@ def analyse(arr: list):
 
         elif type.single(token):
             arg = analyse(arr)
-            return wrap.sngle(token, arg)
+            return wrap.single(token, arg)
 
         elif type.double(token):
             arg_2 = analyse(arr)
@@ -59,9 +56,3 @@ def analyse(arr: list):
 
         else:
             raise ValueError('Forbidden token found!')
-
-
-def end(pre=False):
-    if pre:
-        print("")
-    print("| \033[1;30mEXIT\033[0m")
