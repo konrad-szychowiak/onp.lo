@@ -1,6 +1,10 @@
 import json
+import os
 
-_conf = open('./config.json', 'r').read()
+_dir = os.path.dirname(__file__)
+confFile = os.path.join(_dir, 'config.json')
+
+_conf = open(confFile, 'r').read()
 _conf = json.loads(_conf)
 
 # export
