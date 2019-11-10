@@ -1,5 +1,5 @@
 import unittest
-import utils.test
+import onpl.read as read
 
 
 class TestOnp(unittest.TestCase):
@@ -8,7 +8,7 @@ class TestOnp(unittest.TestCase):
     """
 
     def test_1(self):
-        actual = utils.test.init("a p/1".split())
+        actual = read.raw("a p/1".split())
         expected = "p(a)"
 
         self.assertEqual(expected, actual)

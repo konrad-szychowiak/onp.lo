@@ -1,6 +1,6 @@
 """ onp.lo - All Rights Reserved. """
 
-import utils.test
+import onpl.read as reader
 
 
 def main():
@@ -19,19 +19,19 @@ def main():
         if postfix in [[], ['EXIT'], ['END']]:
             break
 
-        postfix = utils.test.init(postfix)
+        postfix = reader.get(postfix)
 
         print(f"| {postfix}\n")
         # for i in range(len(postfix)-1, -1, -1): #odczytywanie wyrazow postfixa od konca
         #     pass
 
-    utils.test.end()
+    reader.end()
 
 
 print(main.__doc__)
 try:
     main()
 except KeyboardInterrupt:
-    utils.test.end(True)
+    reader.end(True)
 except EOFError:
-    utils.test.end(True)
+    reader.end(True)

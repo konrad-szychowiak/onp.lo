@@ -1,6 +1,6 @@
 import json
 
-_conf = open('config.json', 'r').read()
+_conf = open('./config.json', 'r').read()
 _conf = json.loads(_conf)
 
 # export
