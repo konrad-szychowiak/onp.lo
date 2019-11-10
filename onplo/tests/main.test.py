@@ -1,8 +1,8 @@
 import unittest
-import onpl.read as read
+import read as read
 
 
-class TestOnp(unittest.TestCase):
+class TestExampleOutput(unittest.TestCase):
     """
     Unit tests for provided input/output examples.
     """
