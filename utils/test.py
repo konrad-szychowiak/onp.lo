@@ -2,18 +2,22 @@ import utils.conf as conf
 
 
 def _oper(token):
+    return token
     return f"\033[1m{token}\033[0m"
 
 
 def _not(token):
+    return token
     return f"\033[1;31m{token}\033[0m"
 
 
 def _quantifier(token):
+    return token
     return f"\033[35m{token}\033[0m"
 
 
 def _func(token):
+    return token
     return f"\033[34m{token}\033[0m"
 
 
@@ -82,4 +86,4 @@ def analyse(arr: list):
 def end(pre=False):
     if pre:
         print("")
-    print("| \033[1;30mEXIT\033[0m")
+    print("| \033[1;30mEXIT\033[0m", )
