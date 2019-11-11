@@ -6,39 +6,36 @@ _formula = []
 
 
 def get(form: str):
-    """
-    General parser function
-    """
-    _formula = form.split()
+    """ General parser function """
 
+    _formula = form.split()
     return analyse(_formula)
 
 
-def analyse(arr: list):
+def analyse(data: list):
     """
     Funcion processes and prints tokens from imput
     with corresponding types.
     """
 
-    # print(arr)
-    if len(arr) == 0:
+    if len(data) == 0:
         raise IndexError("Out of reach")
 
     else:
-        token = arr.pop()
+        token = data.pop()
 
         if type.quantifier(token):
-            formula = wrap._wrap(analyse(arr))
-            variable = wrap._wrap(analyse(arr))
+            formula = wrap._wrap(analyse(data))
+            variable = wrap._wrap(analyse(data))
             return wrap.quantifier(token, variable, formula)
 
         elif type.single(token):
-            arg = analyse(arr)
+            arg = analyse(data)
             return wrap.single(token, arg)
 
         elif type.double(token):
-            arg_2 = analyse(arr)
-            arg_1 = analyse(arr)
+            arg_2 = analyse(data)
+            arg_1 = analyse(data)
             return wrap.double(token, arg_1, arg_2)
 
         elif type.predicate(token) or type.function(token):
@@ -46,7 +43,7 @@ def analyse(arr: list):
             term_list = ""
 
             for argv in range(int(argc)):
-                argv = analyse(arr)
+                argv = analyse(data)
                 term_list = f"{argv}, " + term_list
 
             return wrap.predicate(token, term_list[:-2])
