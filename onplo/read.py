@@ -22,7 +22,7 @@ def analyse(arr: list):
 
     # print(arr)
     if len(arr) == 0:
-        pass
+        raise IndexError("Out of reach")
 
     else:
         token = arr.pop()
