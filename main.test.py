@@ -1,5 +1,5 @@
 import unittest
-import read as read
+import onplo.read
 
 
 class TestExampleOutput(unittest.TestCase):
@@ -8,15 +8,11 @@ class TestExampleOutput(unittest.TestCase):
     """
 
     def test_1(self):
-        actual = read.raw("a p/1".split())
-        expected = "p(a)"
-
+        actual, expected = onplo.read.get("a p/1"), "p(a)"
         self.assertEqual(expected, actual)
 
     def test_2(self):
-        # actual = utils.test.init("a p/1".split())
-        # expected = "p(a)"
-        #
+        # actual, expected = onplo.read.get("<input>"), "<output>"
         # self.assertEqual(expected, actual)
         pass
 
