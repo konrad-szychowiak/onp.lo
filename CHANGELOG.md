@@ -12,4 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Main module for presentation purposes
 - Very basic tests
 
+### Deprecated
+
+- Use of `utils.test` as conversion provider
+
 [unreleased]: https://github.com/konrad-szychowiak/onp.lo
