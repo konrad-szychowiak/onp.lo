@@ -15,11 +15,11 @@ def double(token):
 
 
 def predicate(token):
-    return match("^[p-z]\/+[1-9]$", token)
+    return match("^[p-z]\/[1-9]$", token)
 
 
 def function(token):
-    return match("^[f-o]\/+[1-9]$", token)
+    return match("^[f-o]\/[1-9]$", token)
 
 
 def constant(token):
