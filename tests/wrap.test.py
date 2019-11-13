@@ -1,6 +1,6 @@
 import sys
 import unittest
-import wrap
+import onplo.wrap as wrap
 
 
 class TestWrapers(unittest.TestCase):

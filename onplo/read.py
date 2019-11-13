@@ -25,8 +25,8 @@ def analyse(data: list):
         token = data.pop()
 
         if type.quantifier(token):
-            formula = wrap._wrap(analyse(data))
-            variable = wrap._wrap(analyse(data))
+            formula = analyse(data)
+            variable = analyse(data)
             return wrap.quantifier(token, variable, formula)
 
         elif type.single(token):

@@ -1,18 +1,5 @@
 {
   "quantifiers": ["FORALL", "∀", "EXISTS", "∃", "MAYBE", "Ɯ"],
   "singles": ["NOT", "~", "¬"],
-  "doubles": [
-    "AND",
-    "&",
-    "∧",
-    "OR",
-    "|",
-    "∨",
-    "IMPLIES",
-    "→",
-    "IFF",
-    "↔",
-    "XOR",
-    "⊕"
-  ]
+  "doubles": ["AND", "&", "∧", "OR", "|", "∨", "IMPLIES", "→", "IFF", "↔", "XOR", "⊕"]
 }
