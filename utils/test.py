@@ -1,3 +1,5 @@
+# DEPRECATED
+# TODO: remove in second release
 import utils.conf as conf
 
 

@@ -1,6 +1,6 @@
 """ onp.lo - All Rights Reserved. """
 
-import onpl.read as reader
+import onplo.read as reader
 
 
 def main():
@@ -13,25 +13,26 @@ def main():
 
     # reading data
     while True:
-        postfix = input('$ ').split()
+        postfix = input('$ ')
 
         # user interruption / ending input
-        if postfix in [[], ['EXIT'], ['END']]:
+        if postfix in ['', 'EXIT', 'END']:
             break
 
         postfix = reader.get(postfix)
 
         print(f"| {postfix}\n")
-        # for i in range(len(postfix)-1, -1, -1): #odczytywanie wyrazow postfixa od konca
-        #     pass
 
-    reader.end()
+    print("| \033[1;30mEXIT\033[0m")
 
 
-print(main.__doc__)
-try:
-    main()
-except KeyboardInterrupt:
-    reader.end(True)
-except EOFError:
-    reader.end(True)
+if __name__ == '__main__':
+    print(main.__doc__)
+    try:
+        main()
+
+    except (KeyboardInterrupt, EOFError):
+        print("\n| \033[1;30mEXIT\033[0m")
+
+    except (IndexError, ValueError) as Error:
+        print(f"| \033[1;31mERROR\033[0m\t{Error}")

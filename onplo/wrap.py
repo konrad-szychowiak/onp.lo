@@ -26,7 +26,7 @@ def predicate(token, terms):
 
 
 def quantifier(token, variable, formula):
-    return _wrap(f"{token} {variable} ({formula})")
+    return _wrap(f"{token} {variable} {formula}")
 
 
 def single(token, formula):
