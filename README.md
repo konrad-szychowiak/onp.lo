@@ -1,5 +1,7 @@
 # onp.lo
 
+[![Build Status](https://travis-ci.com/konrad-szychowiak/onp.lo.svg?token=t4TxLZpjW4GqaJpJnsTe&branch=develop)](https://travis-ci.com/konrad-szychowiak/onp.lo)
+
 > **o**dwrotna **n**otacja **p**olska (**l**ogika **o**bliczeniowa)
 >
 > Program tłumaczący notację postfiksową na infiksową, implementacja w języku python&nbsp;3.x.
