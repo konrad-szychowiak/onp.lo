@@ -3,15 +3,6 @@
 > Python 3.x package for translating reversed polish notation (AKA postfix notation)
 > into infix notation (AKA the normal one)..
 
-## 🚧 Testing
-
-We have one test suite ready to run from the main project directory:
-
-```sh
-$ python3 main.test.py
-# Unit tests for provided input/output examples.
-```
-
 ## Usage
 
 Our converter function is delivered by `onplo.read` module:
@@ -26,7 +17,7 @@ onplo.read.get('X X p/1 X p/1 ¬ AND EXISTS NOT')
 # => '(NOT (EXISTS X ((p(X) AND ¬ p(X)))))'
 ```
 
-## Configuration
+### Configuration
 
 In `config.json` you can find
 
@@ -63,3 +54,10 @@ as python lists and strings (respectively).
 `onplo.conf.quantifier` will provide quantifiers,
 `onplo.conf.predicate`—predicates,
 etc.
+
+### 🚧 Testing
+
+```sh
+# Test suites are ready to run using:
+$ pytest
+```
