@@ -1,5 +1,5 @@
 from re import search as match
-import onplo.conf as conf
+from onplo import conf
 
 
 def quantifier(token):

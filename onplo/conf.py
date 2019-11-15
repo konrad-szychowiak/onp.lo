@@ -1,5 +1,11 @@
-import json
+"""
+Configuration-loading module with setup for the type-checkers.
+
+Loads data from `config.json`, where control lists are defined.
+"""
+
 import os
+import json
 
 _dir = os.path.dirname(__file__)
 confFile = os.path.join(_dir, 'config.json')

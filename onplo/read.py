@@ -1,8 +1,5 @@
-import onplo.type as type
-import onplo.wrap as wrap
-
-
-_formula = []
+from onplo import type
+from onplo import wrap
 
 
 def get(form: str):
