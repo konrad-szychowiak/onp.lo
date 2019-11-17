@@ -11,7 +11,7 @@ def get(form: str):
 
 def analyse(data: list):
     """
-    Funcion processes and prints tokens from imput
+    Function processes and prints tokens from input
     with corresponding types.
     """
 
