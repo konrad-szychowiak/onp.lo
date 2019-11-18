@@ -17,6 +17,25 @@ onplo.read.get('X X p/1 X p/1 ¬ AND EXISTS NOT')
 # => '(NOT (EXISTS X ((p(X) AND ¬ p(X)))))'
 ```
 
+### Install
+
+> Make sure you have `python` 3.6+ and `pip` installed
+
+```sh
+# check versions
+python3 --version   # expected: 3.6+
+pip3 --version
+
+## from project's main directory
+# we suggest you open virtualenv in the directory
+virtualenv venv
+source venv/bin/activate
+
+# install dependencies
+pip3 install -r requirements.txt
+pip3 install -e .
+```
+
 ### Configuration
 
 In `config.json` you can find
@@ -28,7 +47,7 @@ In `config.json` you can find
 It should look like this:
 
 ```js
-// config.json
+// ./onplo/config.json
 {
   "quantifier":
     /* quantifiers list */,
@@ -55,9 +74,13 @@ as python lists and strings (respectively).
 `onplo.conf.predicate`—predicates,
 etc.
 
-### 🚧 Testing
+### Testing
 
 ```sh
-# Test suites are ready to run using:
-$ pytest
+# required dependencies
+pip3 install -r requirements.txt
+pip3 install -e .
+
+# running test suites
+pytest
 ```
