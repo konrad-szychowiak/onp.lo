@@ -46,26 +46,21 @@ In `config.json` you can find
 
 It should look like this:
 
-```js
-// ./onplo/config.json
-{
-  "quantifier":
-    /* quantifiers list */,
-  "single":
-    /* single-argument operators list */,
-  "double":
-    /* double-argument operators list */,
+Following tokens are processed, whilst considered valid.
 
-  "predicate":
-    /* predicate-validating regex */,
-  "function":
-    /* function-validating regex */,
-  "constant":
-    /* constant-validating regex */,
-  "variable":
-    /* variable-validating regex */,
-}
-```
+| token                                       | namespace                      |
+| ------------------------------------------- | ------------------------------ |
+| **variable**                                | `[A-Z]`                        |
+| **constant**                                | `[a-e]`                        |
+| **function** (w/ arity)                     | `[f-o]`                        |
+| **predicate** (w/ arity)                    | `[p-z]`                        |
+| **negacja** (single argument operator)      | `NOT`, `~`, `¬`                |
+| **conjunction**                             | `AND`, `&`, `∧`                |
+| **disjunction**                             | `OR`, <code>&vert;</code>, `∨` |
+| **implication**                             | `IMPLIES`, `→`                 |
+| **if, and only if**                         | `IFF`, `↔`                     |
+| **exclusive** disjunction                   | `XOR`, `⊕`                     |
+| **quantifiers** (universal and existential) | `FORALL`, `∀`, `EXISTS`, `∃`   |
 
 Module `onplo.config` provides acess to the above config data
 as python lists and strings (respectively).
