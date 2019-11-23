@@ -1,13 +1,13 @@
 # Authors
 
-> People creating the project
+> onp.lo core team
 
 - Karina Szubert [@Karina-00]
 - Konrad Szychowiak [@konrad-szychowiak]
 
 ## Former contributors
 
-- Aleksander Zioło [aleksander002] (exited project)
+- Aleksander Zioło [@aleksander002] (left project)
 
 <!-- links -->
 
