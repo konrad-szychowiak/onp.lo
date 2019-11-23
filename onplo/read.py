@@ -3,7 +3,7 @@ from onplo import wrap
 
 
 def get(form: str):
-    """ General parser function """
+    """General parser function"""
 
     _formula = form.split()
     return analyse(_formula)
@@ -49,4 +49,5 @@ def analyse(data: list):
             return token
 
         else:
-            raise ValueError('Forbidden token found!')
+            raise ValueError(f"""Forbidden token found whilst analysing given formula :
+                '{token}' in position {len(data)}""")
