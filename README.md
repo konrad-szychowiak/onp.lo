@@ -4,7 +4,7 @@
 [![Netlify Status][netlify]](https://app.netlify.com/sites/suspicious-davinci-935db7/deploys)
 
 > Python package and showcase application for converting
-> reverse Polish Notation into standard infix notation.
+> reverse polish notation into standard infix notation.
 >
 > onp.lo stands for _Odwrotna Notacja Polska, Logika Obliczeniowa_
 > (polish for: _Reverse Polish Notation, Logical Calculus_)
