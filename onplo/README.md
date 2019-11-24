@@ -1,6 +1,6 @@
 # onp.lo package
 
-> Python 3.x package for translating reversed polish notation (AKA postfix notation)
+> Python 3.x package for translating reverse polish notation (AKA postfix notation)
 > into infix notation (AKA the normal one)..
 
 ## Usage
@@ -12,7 +12,7 @@ Our converter function is delivered by `onplo.read` module:
 import onplo.read
 
 onplo.read.get('X X p/1 X p/1 ¬ AND EXISTS NOT')
-#              ^ string in reversed polish notation
+#              ^ string in reverse polish notation
 #
 # => '(NOT (EXISTS X ((p(X) AND ¬ p(X)))))'
 ```
