@@ -1,62 +1,115 @@
 # onp.lo
 
-[![Build Status](https://travis-ci.com/konrad-szychowiak/onp.lo.svg?token=t4TxLZpjW4GqaJpJnsTe&branch=develop)](https://travis-ci.com/konrad-szychowiak/onp.lo)
+[![Build Status][travis]](https://travis-ci.com/konrad-szychowiak/onp.lo)
+[![Netlify Status][netlify]](https://app.netlify.com/sites/suspicious-davinci-935db7/deploys)
 
-> **o**dwrotna **n**otacja **p**olska (**l**ogika **o**bliczeniowa)
+> Python package and showcase application for converting
+> reverse polish notation into standard infix notation.
 >
-> Program tłumaczący notację postfiksową na infiksową, implementacja w języku python&nbsp;3.x.
+> onp.lo stands for _Odwrotna Notacja Polska, Logika Obliczeniowa_
+> (polish for: _Reverse Polish Notation, Logical Calculus_)
 
-## Zadanie
+## Instalation
 
-> Zaimplementuj wczytywanie formuł rachunku predykatów w odwrotnej notacji polskiej (ONP) i wypisywanie ich w postaci infiksowej. Formuły w ONP podawane są na standardowe wejście programu, a ich odpowiedniki powinny być wypisane na standardowe wyjście. Każda formuła na wejściu zapisana jest w nowej linii, w odpowiadających liniach wyjścia powinny być formuły zapisane w postaci infiksowej. [cytat]
+You can install `onplo` as a python package, if you wish.
+It is not required for a showcase application to work, though.
+(But you will need it to run tests. Consult [this file][readme] beforehand.)
 
-- Kolejne **formuły** na wejściu oddzielone są znakami nowej linii.
+```sh
+## Assuming you use unix/linux to get, test and run onplo
+# check versions and install dependencies if you need to
+python3 --version   # expected: 3.6+
+pip3 --version
 
-- Kolejne **symbole** w obrębie formuły na wejściu oddzielone są spacjami.
+## from project's main directory
+# we suggest opening virtualenv in the directory
+virtualenv venv
+source venv/bin/activate
 
-- **Stałe** oznaczone są zawsze pojedynczą małą literą alfabetu łacińskiego od a do e.
+# install dependencies
+pip3 install -r requirements.txt
 
-- **Zmienne** oznaczone są zawsze pojedynczą wielką literą alfabetu łacińskiego.
-
-- **Symbole funkcyjne** są zawsze oznaczone pojedynczą małą literą alfabetu łacińskieg od **_f_** do **_n_**, po której następuje `/` i jedna cyfra określająca liczbę argumentów (arność) symbolu
-
-- **Symbole predykatywne** są zawsze oznaczone pojedynczą małą literą alfabetu łacińskieg od **_p_** do **_z_**, po której następuje `/` i jedna cyfra określająca liczbę argumentów (arność) symbolu
-
-- **Operatory** i **kwantyfikatory** mogą być oznaczone w jeden z następujących sposobów (program musi obsługiwać wszystkie warianty).
-
----
-
-| element składni                  | symbol | przestrzeń nazw                |
-| -------------------------------- | :----: | ------------------------------ |
-| **stała**                        |  `c`   | `a`..`e`                       |
-| **zmienna**                      |  `X`   | `A`..`Z`                       |
-| **symbol funkcyjny**             | `f/1`  | `f`..`n`                       |
-| **symbol predykatywny**          | `p/1`  | `p`..`z`                       |
-| **negacja**                      |  `¬`   | `NOT`, `~`, `¬`                |
-| **koniunkcja**                   |  `∧`   | `AND`, `&`, `∧`                |
-| **alternatywa** (~~dysjunkcja~~) |  `∨`   | `OR`, <code>&vert;</code>, `∨` |
-| **implikacja**                   |  `→`   | `IMPLIES`, `→`                 |
-| **równoważność**                 |  `↔`   | `IFF`, `↔`                     |
-| alternatywa **wykluczająca**     |  `⊕`   | `XOR`, `⊕`                     |
-| kwantyfikator **uniwersalny**    |  `∀`   | `FORALL`, `∀`                  |
-| kwantyfikator **egzystencjalny** |  `∃`   | `EXISTS`, `∃`                  |
-
-### Wejście (przykład)
-
-```py
-a p/1
-Z Z p/1 EXISTS
-Z X X a f/2 p/1 ∃ Y Y Z f/1 p/2 FORALL → FORALL
-Z Y X X b c q/3 Z Y f/1 p/2 ~ & EXISTS FORALL EXISTS
+# install the package in editable mode
+pip3 install -e .
 ```
 
-### Wyjście (przykład)
+> **note:** `setup.py` is used only for generating and instaling `onplo`
+> python package and is not an element of the presented solution itself
 
-```py
-p(a)
-(EXISTS Z p(Z))
-(FORALL Z ((∃ X p(f(X, a))) → (FORALL Y p(Y, f(Z)))))
-(EXISTS Z (FORALL Y (EXISTS X (q(X, b, c) & (~ p(Z, f(Y)))))))
+## Usage
+
+**onp.lo** provides conversion of input (strings or arrays/lists)
+from postfix to infix notation
+using recursive algorithm provided by `onplo`'s api.
+
+### Showcase application
+
+```sh
+# run showcase app
+python3 main.py
 ```
 
-[cytat]: https://moodle.put.poznan.pl/mod/page/view.php?id=53864
+- Showcase app expects infinite number of lines—after <code>\$&nbsp;</code>.
+- Processed output (infix notation) will be given after <code>|&nbsp;</code>
+  in new line.
+- Inputs can be finished using `END`, `EXIT`, `ctrl+D` or `ctrl+C` in the input, or leaving a blank line.
+  - Application will inform about exiting with `| EXIT` line.
+  - If during execution any errors occurred (ex. invalid tokens) `| ERROR` will be printed.
+
+### Input/Output Examples
+
+```
+$ a p/1
+| p(a)
+
+$ Z p/1 EXISTS
+| (EXISTS Z p(Z))
+
+$ X X a f/2 p/1 ∃ Y Y Z f/1 p/2 FORALL → FORALL
+| (FORALL Z ((∃ X p(f(X, a))) → (FORALL Y p(Y, f(Z)))))
+
+$ Y X X b c q/3 Z Y f/1 p/2 ~ & EXISTS FORALL EXISTS
+| (EXISTS Z (FORALL Y (EXISTS X (q(X, b, c) & (~ p(Z, f(Y)))))))
+
+$ invalid_token EXISTS
+| ERROR       Forbidden token found whilst analysing given formula :
+              'invalid_token' in position 0
+
+$ EXIT
+| EXIT
+```
+
+> For those provided examples we have prepared tests.
+> Please refer to `onplo` package's inner [README]
+> and python [test files](./tests/api_test.py).
+
+### Under-the-hood
+
+If you need docs over usage of code we've written,
+head straight to `onplo` package [README]
+and [CONTRIBUTING] guide (soon)—you will find in-depth explenations
+about features and modules of `onplo`.
+
+You can also visit [website] w/ docs published via Netlify.
+
+## Changes
+
+See [CHANGELOG] for full list of changes and updates.
+
+## Authors
+
+See [AUTHORS] for full list of contributors.
+
+## License
+
+Until review this project shall **not** be considered open-source.
+
+<!-- links -->
+
+[travis]: https://travis-ci.com/konrad-szychowiak/onp.lo.svg?token=t4TxLZpjW4GqaJpJnsTe&branch=develop
+[netlify]: https://img.shields.io/netlify/7155677d-8a01-4613-ba7a-b42ad987710a?label=docs&logo=netlify&logoColor=white
+[website]: https://suspicious-davinci-935db7.netlify.com/
+[authors]: ./AUTHORS.md
+[readme]: ./onplo/README.md
+[changelog]: ./CHANGELOG.md
+[contributing]: ./CONTRIBUTING.md

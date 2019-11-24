@@ -1,16 +1,7 @@
 # onp.lo package
 
-> Python 3.x package for translating reversed polish notation (AKA postfix notation)
+> Python 3.x package for translating reverse polish notation (AKA postfix notation)
 > into infix notation (AKA the normal one)..
-
-## 🚧 Testing
-
-We have one test suite ready to run from the main project directory:
-
-```sh
-$ python3 main.test.py
-# Unit tests for provided input/output examples.
-```
 
 ## Usage
 
@@ -21,12 +12,31 @@ Our converter function is delivered by `onplo.read` module:
 import onplo.read
 
 onplo.read.get('X X p/1 X p/1 ¬ AND EXISTS NOT')
-#              ^ string in reversed polish notation
+#              ^ string in reverse polish notation
 #
 # => '(NOT (EXISTS X ((p(X) AND ¬ p(X)))))'
 ```
 
-## Configuration
+### Install
+
+> Make sure you have `python` 3.6+ and `pip` installed
+
+```sh
+# check versions
+python3 --version   # expected: 3.6+
+pip3 --version
+
+## from project's main directory
+# we suggest you open virtualenv in the directory
+virtualenv venv
+source venv/bin/activate
+
+# install dependencies
+pip3 install -r requirements.txt
+pip3 install -e .
+```
+
+### Configuration
 
 In `config.json` you can find
 
@@ -36,26 +46,21 @@ In `config.json` you can find
 
 It should look like this:
 
-```js
-// config.json
-{
-  "quantifier":
-    /* quantifiers list */,
-  "single":
-    /* single-argument operators list */,
-  "double":
-    /* double-argument operators list */,
+Following tokens are processed, whilst considered valid.
 
-  "predicate":
-    /* predicate-validating regex */,
-  "function":
-    /* function-validating regex */,
-  "constant":
-    /* constant-validating regex */,
-  "variable":
-    /* variable-validating regex */,
-}
-```
+| token                                       | namespace                      |
+| ------------------------------------------- | ------------------------------ |
+| **variable**                                | `[A-Z]`                        |
+| **constant**                                | `[a-e]`                        |
+| **function** (w/ arity)                     | `[f-o]`                        |
+| **predicate** (w/ arity)                    | `[p-z]`                        |
+| **negacja** (single argument operator)      | `NOT`, `~`, `¬`                |
+| **conjunction**                             | `AND`, `&`, `∧`                |
+| **disjunction**                             | `OR`, <code>&vert;</code>, `∨` |
+| **implication**                             | `IMPLIES`, `→`                 |
+| **if, and only if**                         | `IFF`, `↔`                     |
+| **exclusive** disjunction                   | `XOR`, `⊕`                     |
+| **quantifiers** (universal and existential) | `FORALL`, `∀`, `EXISTS`, `∃`   |
 
 Module `onplo.config` provides acess to the above config data
 as python lists and strings (respectively).
@@ -63,3 +68,14 @@ as python lists and strings (respectively).
 `onplo.conf.quantifier` will provide quantifiers,
 `onplo.conf.predicate`—predicates,
 etc.
+
+### Testing
+
+```sh
+# required dependencies
+pip3 install -r requirements.txt
+pip3 install -e .
+
+# running test suites
+pytest
+```

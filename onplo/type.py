@@ -1,5 +1,5 @@
 from re import search as match
-import onplo.conf as conf
+from onplo import conf
 
 
 def quantifier(token):
@@ -19,7 +19,7 @@ def predicate(token):
 
 
 def function(token):
-    return match("^[f-o]\/[1-9]$", token)
+    return match("^[f-n]\/[1-9]$", token)
 
 
 def constant(token):

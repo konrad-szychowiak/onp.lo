@@ -1,9 +1,3 @@
-def _close(token):
-    return f"({token})"
-
-
-def _open(token):
-    return f"{token}"
 
 
 def _wrap(token, allow=1):
@@ -11,14 +5,10 @@ def _wrap(token, allow=1):
     lenC = len(token.split(', '))
 
     if lenS not in [allow, lenC]:
-        return _close(token)
+        return f"({token})"
 
     else:
-        return _open(token)
-
-
-def _decompose(token):
-    token, args = token.split('/')
+        return f"{token}"
 
 
 def predicate(token, terms):

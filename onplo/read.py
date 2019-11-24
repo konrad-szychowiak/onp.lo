@@ -1,12 +1,9 @@
-import onplo.type as type
-import onplo.wrap as wrap
-
-
-_formula = []
+from onplo import type
+from onplo import wrap
 
 
 def get(form: str):
-    """ General parser function """
+    """General parser function"""
 
     _formula = form.split()
     return analyse(_formula)
@@ -14,7 +11,7 @@ def get(form: str):
 
 def analyse(data: list):
     """
-    Funcion processes and prints tokens from imput
+    Function processes and prints tokens from input
     with corresponding types.
     """
 
@@ -52,4 +49,5 @@ def analyse(data: list):
             return token
 
         else:
-            raise ValueError('Forbidden token found!')
+            raise ValueError(f"""Forbidden token found whilst analysing given formula :
+                '{token}' in position {len(data)}""")
