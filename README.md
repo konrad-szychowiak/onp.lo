@@ -92,6 +92,10 @@ about features and modules of `onplo`.
 
 You can also visit [website] w/ docs published via Netlify.
 
+## Changes
+
+See [CHANGELOG] for full list of changes and updates.
+
 ## Authors
 
 See [AUTHORS] for full list of contributors.
@@ -107,4 +111,5 @@ Until review this project shall **not** be considered open-source.
 [website]: https://suspicious-davinci-935db7.netlify.com/
 [authors]: ./AUTHORS.md
 [readme]: ./onplo/README.md
+[changelog]: ./CHANGELOG.md
 [contributing]: ./CONTRIBUTING.md
