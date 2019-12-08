@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Added
+- Open-Source [License]
+
 
 ## [v0.2.0] – 2019-11-24
 ### Added
@@ -35,6 +38,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Use of `utils.test` as conversion provider
 - `onplo.py`—unused version of the conveter
 
+
 <!-- links -->
 [unreleased]: https://github.com/konrad-szychowiak/onp.lo/tree/develop
 [v0.2.0]: https://github.com/konrad-szychowiak/onp.lo/tree/v0.2
@@ -44,3 +48,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 [authors]: ./AUTHORS.md
 [readme]: ./onplo/README.md
 [contributing]: ./CONTRIBUTING.md
+[license]: ./LICENSE

@@ -102,7 +102,8 @@ See [AUTHORS] for full list of contributors.
 
 ## License
 
-Until review this project shall **not** be considered open-source.
+This software is distributed under **Mozilla Public License 2.0**.
+See [LICENSE] for full license text.
 
 <!-- links -->
 
@@ -111,5 +112,6 @@ Until review this project shall **not** be considered open-source.
 [website]: https://suspicious-davinci-935db7.netlify.com/
 [authors]: ./AUTHORS.md
 [readme]: ./onplo/README.md
+[license]: ./LICENSE
 [changelog]: ./CHANGELOG.md
 [contributing]: ./CONTRIBUTING.md

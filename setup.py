@@ -10,4 +10,5 @@ setup(
     name='onplo',
     version='0.2',
     packages=['onplo'],
+    license="MPL-2.0"
 )
