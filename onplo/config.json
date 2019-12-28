@@ -1,5 +1,26 @@
 {
-  "quantifiers": ["FORALL", "∀", "EXISTS", "∃", "MAYBE", "Ɯ"],
-  "singles": ["NOT", "~", "¬"],
-  "doubles": ["AND", "&", "∧", "OR", "|", "∨", "IMPLIES", "→", "IFF", "↔", "XOR", "⊕"]
+  "match": {
+    "quantifier": ["FORALL", "∀", "EXISTS", "∃", "MAYBE", "Ɯ"],
+    "single": ["NOT", "~", "¬"],
+    "double": [
+      "AND",
+      "&",
+      "∧",
+      "OR",
+      "|",
+      "∨",
+      "IMPLIES",
+      "→",
+      "IFF",
+      "↔",
+      "XOR",
+      "⊕"
+    ]
+  },
+  "rematch": {
+    "predicate": "^[p-z]/[1-9]$",
+    "function": "^[f-n]/[1-9]$",
+    "constant": "^[a-e]$",
+    "variable": "^[A-Z]$"
+  }
 }

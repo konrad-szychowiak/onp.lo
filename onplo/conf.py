@@ -14,6 +14,5 @@ _conf = open(confFile, 'r', encoding='utf-8').read()
 _conf = json.loads(_conf)
 
 # export
-quantifiers = _conf['quantifiers']
-doubles = _conf['doubles']
-singles = _conf['singles']
+match_list = _conf["match"]
+match_re = _conf["rematch"]

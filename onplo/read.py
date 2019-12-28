@@ -1,5 +1,5 @@
 from onplo import type
-from onplo import wrap
+from onplo import new_wrap as wrap
 
 
 def get(form: str):
@@ -21,21 +21,21 @@ def analyse(data: list):
     else:
         token = data.pop()
 
-        if type.quantifier(token):
+        if type.match("quantifier", token):
             formula = analyse(data)
             variable = analyse(data)
             return wrap.quantifier(token, variable, formula)
 
-        elif type.single(token):
+        elif type.match("single", token):
             arg = analyse(data)
             return wrap.single(token, arg)
 
-        elif type.double(token):
+        elif type.match("double", token):
             arg_2 = analyse(data)
             arg_1 = analyse(data)
             return wrap.double(token, arg_1, arg_2)
 
-        elif type.predicate(token) or type.function(token):
+        elif type.rematch("predicate", token) or type.rematch("function", token):
             token, argc = token.split('/')
             term_list = ""
 
@@ -45,7 +45,7 @@ def analyse(data: list):
 
             return wrap.predicate(token, term_list[:-2])
 
-        elif type.constant(token) or type.variable(token):
+        elif type.rematch("constant", token) or type.rematch("variable", token):
             return token
 
         else:

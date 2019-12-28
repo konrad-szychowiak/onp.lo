@@ -1,30 +1,26 @@
-from re import search as match
-from onplo import conf
+import re
+from onplo.conf import match_list, match_re
 
 
-def quantifier(token):
-    return token in conf.quantifiers
+def match(type, token):
+    """
+    Matches token (str) to a given type (str)
+    using *list* provided by config file.
+
+    Returns bool:
+    True    when match is successful
+    False   otherwise
+    """
+    return token in match_list[type]
 
 
-def single(token):
-    return token in conf.singles
+def rematch(type, token):
+    """
+    Matches token (str) to a given type (str)
+    using *regexes* provided by config file.
 
-
-def double(token):
-    return token in conf.doubles
-
-
-def predicate(token):
-    return match("^[p-z]\/[1-9]$", token)
-
-
-def function(token):
-    return match("^[f-n]\/[1-9]$", token)
-
-
-def constant(token):
-    return match("^[a-e]$", token)
-
-
-def variable(token):
-    return match("^[A-Z]$", token)
+    Returns bool:
+    True    when match is successful
+    False   otherwise
+    """
+    return re.search(match_re[type], token)
